@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoryApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+15a363bbf8e12371a2066c03dcedeee24e9ec366")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoryApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoryApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
