@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoryApp.MainPage">
+
+    <Grid BackgroundColor="#0d0118" RowDefinitions=".05*,.1*,.45*,.05*,.05*,.3*">
+        <Label Grid.Row="0"
+               FontSize="20"
+               HorizontalOptions="Center"
+               Text="Readipix"
+               TextColor="White"
+               VerticalOptions="Center" />
+
+        <Grid Grid.Row="1" Margin="25,10,25,10">
+            <RoundRectangle 
+                CornerRadius="30"
+                Fill="#311B45"
+                HeightRequest="45" />
+            <SearchBar x:Name="searchBar"
+                       CancelButtonColor="White"
+                       Placeholder="Search by name"
+                       PlaceholderColor="#ac9db9"
+                       TextColor="White"
+                       VerticalOptions="Center" />
+        </Grid>
+
+        <CarouselView 
+            IndicatorView="indicatorView"
+            Grid.Row="2" 
+            ItemsSource="{Binding FairyTales1}" 
+            PeekAreaInsets="30">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                    ItemSpacing="0"
+                    Orientation="Horizontal"
+                    SnapPointsAlignment="Center"
+                    SnapPointsType="MandatorySingle"/>
+            </CarouselView.ItemsLayout>
+            
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border
+                            Grid.RowSpan="3"
+                            BackgroundColor="#311b45"
+                            HeightRequest="300"
+                            Stroke="#63557c"
+                            StrokeShape="RoundRectangle 30,30,30,30"
+                            StrokeThickness="2"
+                            WidthRequest="300">
+                            <Grid RowDefinitions=".2*, .6*, .2*">
+                                <Image Grid.Row="0" Aspect="AspectFill" Source="{Binding Image}"
+                                       Grid.RowSpan="3"/>
+                                <RoundRectangle
+                                    Grid.RowSpan="3"
+                                    CornerRadius="30"
+                                    HeightRequest="300"
+                                    WidthRequest="300"
+                                    Opacity=".7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent"/>
+                                            <GradientStop Offset="1" Color="#030005"/>
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,0">
+                                    <Label Text ="{Binding ReadTime, StringFormat='Read Time: {0:%m} mins' }" 
+                                        TextColor="White"/>
+                                    <Label FontSize="Large"
+                                        Text="{Binding Name}"
+                                        TextColor="White"/>      
+                                </VerticalStackLayout>
+
+                                <Label
+                                    Margin="0,20,20,0"
+                                    FontFamily="Icons"
+                                    FontSize="25"
+                                    HorizontalOptions="End"
+                                    Text="&#xF097;"
+                                    TextColor="White"/>
+
+                            </Grid>
+                           
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="#C283FD"
+                                    Opacity=".7"
+                                    Radius="100"
+                                    Offset="0,0"/>
+                            </Border.Shadow>
+                        </Border>
+
+                        
+                        
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView
+            x:Name="indicatorView"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            IndicatorColor="#616161"
+            IndicatorSize="8"
+            SelectedIndicatorColor="White"
+            VerticalOptions="Center"/>
+
+        <Label
+            Grid.Row="4"
+            Margin="25,10,25,10"
+            FontSize="16"
+            Text="Trending Now"
+            TextColor="white"
+            VerticalOptions="Center"/>
+
+        <CollectionView Grid.Row="5" ItemsSource="{Binding FairyTales2}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="25" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="200" WidthRequest="200">
+                        <Border
+                            HeightRequest="200"
+                            HorizontalOptions="Center"
+                            Stroke="#6E557C"
+                            StrokeShape="RoundRectangle 20,20,20,20"
+                            StrokeThickness="2"
+                            WidthRequest="200">
+                            <Image Aspect="AspectFill" Source="{Binding Image}" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+        <Grid Grid.Row="5"
+              Margin="15,0,15,0"
+              HeightRequest="75"
+              VerticalOptions="End">
+            <Border 
+                BackgroundColor="#311B45"
+                Stroke="#6E557C"
+                StrokeShape="RoundRectangle 35,35,35,35"
+                
+                StrokeThickness="2" >
+
+                <Grid 
+                    ColumnDefinitions="*,*,*,*"
+                    RowDefinitions="*,*" RowSpacing="3"
+                    BackgroundColor="#4b1e68" Padding="10,5">
+                    <Label 
+                         Grid.Row="1"
+                         FontSize="10"
+                         HorizontalOptions="Center" 
+                         Text="Home"
+                         TextColor="White" />
+                    <Label 
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         FontSize="10"
+                         HorizontalOptions="Center" 
+                         Text="Search"
+                         TextColor="White" />
+                    <Label 
+                          Grid.Column="2"
+                          Grid.Row="1"
+                          FontSize="10"
+                          HorizontalOptions="Center" 
+                          Text="Collection"
+                          TextColor="White" />
+                    <Label 
+                          Grid.Column="3"
+                          Grid.Row="1"
+                          FontSize="10"
+                          HorizontalOptions="Center" 
+                          Text="Profile"
+                          TextColor="White" />
+                    <Image
+                          Grid.Column="0"
+                          Grid.Row="0"
+                          Source="homeicon.png"
+                          HeightRequest="24"
+                          WidthRequest="24"
+                          HorizontalOptions="Center"
+                          VerticalOptions="End"/>
+                    <Image
+                         Grid.Column="1" 
+                         Grid.Row="0"
+                         Source="searchicon.png"
+                         HeightRequest="24"
+                         WidthRequest="24"
+                         HorizontalOptions="Center"
+                         VerticalOptions="End"/>
+                    <Image
+                           Grid.Column="2" 
+                           Grid.Row="0"
+                           Source="libraryicon.png"
+                           HeightRequest="24"
+                           WidthRequest="24"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"/>
+                    <Image
+                           Grid.Column="3" 
+                           Grid.Row="0"
+                           Source="profileicon.png"
+                           HeightRequest="24"
+                           WidthRequest="24"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"/>
+                </Grid>
+
+
+            </Border>
+            
+        </Grid>
+
+    </Grid>
+</ContentPage>
